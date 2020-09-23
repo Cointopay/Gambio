@@ -1,0 +1,13 @@
+<?php
+define('MODULE_PAYMENT_COINTOPAY_TEXT_TITLE', 'Cointopay International');
+define('MODULE_PAYMENT_COINTOPAY_TEXT_DESCRIPTION', 'Cointopay International');
+define('MODULE_PAYMENT_COINTOPAY_TEXT_CHECKOUT', 'Cointopay International');
+define('MODULE_PAYMENT_COINTOPAY_ALIAS_TITLE', 'Title');
+define('MODULE_PAYMENT_COINTOPAY_STATUS_TITLE', 'Active');
+define('MODULE_PAYMENT_COINTOPAY_ALLOWED_TITLE' , 'Allowed Zones');
+define('MODULE_PAYMENT_COINTOPAY_ALLOWED_DESC' , 'Insert Allowed Zones (e.g. AT,DE)');
+define('MODULE_PAYMENT_COINTOPAY_MERCHANT_ID_TITLE', 'Merchant ID');
+define('MODULE_PAYMENT_COINTOPAY_SECURITY_CODE_TITLE', 'Security Code');
+define('MODULE_PAYMENT_COINTOPAY_PAID_STATUS_ID_TITLE', 'Cointopay paid status');
+define('MODULE_PAYMENT_COINTOPAY_FAILED_STATUS_ID_TITLE', 'Cointopay failed status');
+define('MODULE_PAYMENT_COINTOPAY_PAIDNOTENOUGH_STATUS_ID_TITLE', 'Cointopay paid notenough');

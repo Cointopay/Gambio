@@ -1,1 +1,32 @@
-# Gambio
+# Gambio Cointopay Plugin
+
+Cointopay plugin for Gambio store!
+
+
+## Install
+
+Sign up for Cointopay account at <https://cointopay.com>
+
+Please follow the Gambio Cointopay Plugin install instructions mentioned here: <a href="https://docs.google.com/document/d/1A_QgWlv_0XQqLU1A3Bvi0dTPW0VE8gQcUxOZIKvdtVI/edit?usp=sharing">download Gambio Cointopay Plugin documentation</a> or direct link: https://docs.google.com/document/d/1A_QgWlv_0XQqLU1A3Bvi0dTPW0VE8gQcUxOZIKvdtVI/edit?usp=sharing
+
+
+### Via FTP
+
+1. Download [cointopay-gambio-v1.0.zip](https://github.com/Cointopay/Gambio/releases/download/cointopay-gambio-v1.0.zip/cointopay-gambio-v1.0.zip)
+
+2. Extract downloaded zip. Upload **includes** directory and **cointopay_callback.php** file to the **root** directory of your Gambio installation.
+
+3. Login to your Gambio store admin panel and go to **Modules » Payment methods » Others**. Click Newly added modules, then click Cointopay International and click Edit.
+
+4. Go to **Modules » Payment methods » Others**, Click Newly added modules, then click Cointopay International and click Edit. Enter [API Credentials](http://cointopay.com) (Merchant ID, Security Code). Click **Save**.
+
+
+### Support or Contact
+Please contact support@cointopay.com for feature requests and/or incidents, or create a ticket here: https://cointopay.freshdesk.com/helpdesk
+
+### About Cointopay.com
+We are an international crypto currency payment processor, meaning that we accept payments from your customers and make the funds available to you (incl. in form of fiat currency like euro). The direct integration with Gambio provides you with a seamless payment experience while underlying dealing with diverse and complex blockchain technologies like Bitcoin, Ethereum, Neo, Dash, Ripple and many more. P.S. If you want your own crypto currency to become available in this plugin, we can provide that for you as well, Cointopay has been a technological payment incubator since 2014!
+
+### FOR DEVELOPERS AND SALES REPS
+PLEASE NOTE OUR AFFILIATE PROGRAM, YOU RECEIVE 0.5% OF ALL YOUR REFERRALS!
+Create an account on Cointopay.com and send your prospects the following link: https://cointopay.com/?r=[yourmerchantid], you will receive mails when payments come into your account.
