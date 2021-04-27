@@ -52,6 +52,11 @@ if(isset($_GET['ConfirmCode']))
 			echo "Data mismatch! inputCurrency doesn\'t match";
 			exit;
 		}
+		elseif(isset($_GET["cancel"]) && $_GET["cancel"]=="1" && $transactionData['data']['Status'] != $_GET['status']){
+			$_GET['status'] = "failed";
+		}
+		elseif(isset($_GET["notenough"]) && $_GET["notenough"]=="1" && $transactionData['data']['Status'] != $_GET['status']){
+		}
 		elseif($transactionData['data']['Status'] != $_GET['status']){
 			echo "Data mismatch! status doesn\'t match. Your order status is ".$transactionData['data']['Status'];
 			exit;
@@ -62,7 +67,12 @@ if(isset($_GET['ConfirmCode']))
     if(is_string($response)) {
 		echo $response;
 	}
-    if($response['Status'] !== $_REQUEST['status'])
+    if(isset($_REQUEST["cancel"]) && $_REQUEST["cancel"]=="1" && $response['Status'] != $_REQUEST['status']){
+			$_GET['status'] = "failed";
+    }
+    elseif(isset($_REQUEST["notenough"]) && $_REQUEST["notenough"]=="1" && $response['Status'] != $_REQUEST['status']){
+    }
+    elseif($response['Status'] !== $_REQUEST['status'])
     {
         echo "We have detected different order status. Your order status is ". $response['Status'];
         exit;
