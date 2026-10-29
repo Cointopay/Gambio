@@ -8,6 +8,7 @@ if ($token == '' || $_GET['token'] != $token){
 
 $order_id = $_REQUEST['CustomerReferenceNr'];
 $gkey = MODULE_PAYMENT_COINTOPAY_MERCHANT_ID;
+$back_url  = xtc_href_link('index');
 if(isset($_GET['ConfirmCode']))
 {
     $data = [
@@ -18,7 +19,7 @@ if(isset($_GET['ConfirmCode']))
 	$transactionData = fn_cointopay_transactiondetail($data);
 	if(200 !== $transactionData['status_code']){
 		echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">'. $transactionData['message'].'</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-		echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+		echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -37,7 +38,7 @@ if(isset($_GET['ConfirmCode']))
 	else{
 		if($transactionData['data']['Security'] != $_GET['ConfirmCode']){
 			echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">Data mismatch! ConfirmCode doesn\'t match.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-			echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+			echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -55,7 +56,7 @@ if(isset($_GET['ConfirmCode']))
 		}
 		elseif($transactionData['data']['CustomerReferenceNr'] != $_GET['CustomerReferenceNr']){
 			echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">Data mismatch! CustomerReferenceNr doesn\'t match.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-			echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+			echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -73,7 +74,7 @@ if(isset($_GET['ConfirmCode']))
 		}
 		elseif($transactionData['data']['TransactionID'] != $_GET['TransactionID']){
 			echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">Data mismatch! TransactionID doesn\'t match.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-			echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+			echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -91,7 +92,7 @@ if(isset($_GET['ConfirmCode']))
 		}
 		elseif(isset($_GET['AltCoinID']) && $transactionData['data']['AltCoinID'] != $_GET['AltCoinID']){
 			echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">Data mismatch! AltCoinID doesn\'t match.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-			echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+			echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -109,7 +110,7 @@ if(isset($_GET['ConfirmCode']))
 		}
 		elseif(isset($_GET['MerchantID']) && $transactionData['data']['MerchantID'] != $_GET['MerchantID']){
 			echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">Data mismatch! MerchantID doesn\'t match.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-			echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+			echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -127,7 +128,7 @@ if(isset($_GET['ConfirmCode']))
 		}
 		elseif(isset($_GET['CoinAddressUsed']) && $transactionData['data']['coinAddress'] != $_GET['CoinAddressUsed']){
 			echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">Data mismatch! coinAddress doesn\'t match.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-			echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+			echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -145,7 +146,7 @@ if(isset($_GET['ConfirmCode']))
 		}
 		elseif(isset($_GET['SecurityCode']) && $transactionData['data']['SecurityCode'] != $_GET['SecurityCode']){
 			echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">Data mismatch! SecurityCode doesn\'t match.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-			echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+			echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -163,7 +164,7 @@ if(isset($_GET['ConfirmCode']))
 		}
 		elseif(isset($_GET['inputCurrency']) && $transactionData['data']['inputCurrency'] != $_GET['inputCurrency']){
 			echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">Data mismatch! inputCurrency doesn\'t match.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-			echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+			echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -193,7 +194,7 @@ if(isset($_GET['ConfirmCode']))
 		)
 	) {
 			echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">Data mismatch! status doesn\'t match. Your order status is '.$transactionData['data']['Status'].'</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-			echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+			echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -214,7 +215,7 @@ if(isset($_GET['ConfirmCode']))
     $response = validateOrder($data);
     if(is_string($response)) {
 		echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">'.$response.'</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-		echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+		echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -244,7 +245,7 @@ if(isset($_GET['ConfirmCode']))
     )
 ) {
         echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">We have detected different order status. Your order status is '.$response['Status'].'</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-		echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+		echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -268,7 +269,7 @@ if(isset($_GET['ConfirmCode']))
 		$order_row = xtc_db_fetch_array($order);
         if (!$order || !$order_row['orders_id']) {
 		   echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">Order #' . $order_id . ' does not exists.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-	       echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+	       echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -295,7 +296,7 @@ if(isset($_GET['ConfirmCode']))
         {
             $ctp_order_status = MODULE_PAYMENT_COINTOPAY_PAID_STATUS_ID;
 			$res_msg = '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:green;">Payment Successful.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/success.png" />';
-			$res_msg .= '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+			$res_msg .= '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -314,7 +315,7 @@ if(isset($_GET['ConfirmCode']))
         }elseif ($_REQUEST['status']== 'paid' && $_REQUEST['notenough'] == 1) {
             $ctp_order_status = MODULE_PAYMENT_COINTOPAY_PAIDNOTENOUGH_STATUS_ID;
             $res_msg = '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">Payment failed notification from Cointopay because not enough.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-			$res_msg .= '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+			$res_msg .= '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -332,7 +333,7 @@ if(isset($_GET['ConfirmCode']))
         }elseif ($_REQUEST['status']== 'failed') {
             $ctp_order_status = MODULE_PAYMENT_COINTOPAY_FAILED_STATUS_ID;
             $res_msg = '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">Payment failed notification from Cointopay.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-		$res_msg .= '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+		$res_msg .= '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -350,7 +351,7 @@ if(isset($_GET['ConfirmCode']))
         }elseif ($_REQUEST['status'] == 'expired') {
             $ctp_order_status = MODULE_PAYMENT_COINTOPAY_FAILED_STATUS_ID;
             $res_msg = '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;text-align:center;"><h1 style="text-align:center;color:red;">Payment '.$_REQUEST['status'].' notification from Cointopay.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-		$res_msg .= '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+		$res_msg .= '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -405,7 +406,7 @@ if(isset($_GET['ConfirmCode']))
     else
     {
         echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;"><h1 style="text-align:center;color:red;">order id not match.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-         echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+         echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
@@ -425,7 +426,7 @@ if(isset($_GET['ConfirmCode']))
 else
 {
     echo '<div style="width:80%;display:table;margin:10% auto 0 auto;padding:6% 20px;background-color:#dadada;"><h1 style="text-align:center;color:red;">ConfirmCode not match.</h1><img style="width: 100px; margin: 40px auto 20px;"  src="'.GM_HTTP_SERVER . DIR_WS_CATALOG . 'includes/modules/payment/cointopay/img/cross.png" />';
-     echo '<a class="btn btn-default btn-block" href="https://wordpress.cointopay.com/index" title="Go to home" style="
+     echo '<a class="btn btn-default btn-block" href="'.$back_url.'" title="Go to home" style="
 				display: block;
 				background-color: #3F51B5;
 				padding: 10px 38px;
